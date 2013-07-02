@@ -152,7 +152,7 @@ class ezcomCommentsType extends eZDataType
     function deleteStoredObjectAttribute( $contentObjectAttribute, $version = null )
     {
         $version = $contentObjectAttribute->objectVersion();
-        if ( !is_null( $version ) &&
+        if ( !is_null( $version ) && $version instanceof eZContentObjectVersion &&
              $version->attribute( 'status' ) == eZContentObjectVersion::STATUS_PUBLISHED )
         {
             $contentObjectID = $contentObjectAttribute->attribute( 'contentobject_id' );
